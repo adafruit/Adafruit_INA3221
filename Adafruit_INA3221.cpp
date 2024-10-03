@@ -443,9 +443,9 @@ ina3221_mode Adafruit_INA3221::getMode() {
  */
 bool Adafruit_INA3221::setCriticalAlertThreshold(uint8_t channel, float current) {
     if (channel > 2) return false;  // Invalid channel
+    int16_t threshold = static_cast<int16_t>(current * _shunt_resistance[channel] / 40e-6  * 8);  // 40uV per LSB
 
-    int16_t threshold = static_cast<int16_t>(current * _shunt_resistance[channel] * 8);  // Convert to int16_t, considering the 3 LSBs
-    uint16_t reg_addr = INA3221_REG_CRITICAL_ALERT_LIMIT_CH1 + channel;
+    uint16_t reg_addr = INA3221_REG_CRITICAL_ALERT_LIMIT_CH1 + 2*channel;
 
     Adafruit_BusIO_Register alert_reg(i2c_dev, reg_addr, 2, MSBFIRST);
     return alert_reg.write(threshold);
@@ -460,11 +460,14 @@ bool Adafruit_INA3221::setCriticalAlertThreshold(uint8_t channel, float current)
 float Adafruit_INA3221::getCriticalAlertThreshold(uint8_t channel) {
     if (channel > 2) return NAN;  // Invalid channel
 
-    uint16_t reg_addr = INA3221_REG_CRITICAL_ALERT_LIMIT_CH1 + channel;
+    uint16_t reg_addr = INA3221_REG_CRITICAL_ALERT_LIMIT_CH1 + 2*channel;
     Adafruit_BusIO_Register alert_reg(i2c_dev, reg_addr, 2, MSBFIRST);
 
     int16_t threshold = alert_reg.read();
-    return static_cast<float>(threshold) / (_shunt_resistance[channel] * 8);  // Convert back to Amperes
+
+    // Convert back to Amperes
+    float threshA = (float)(threshold >> 3) * 40e-6 / _shunt_resistance[channel];
+    return threshA;  
 }
 
 /**
