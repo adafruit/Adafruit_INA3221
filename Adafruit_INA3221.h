@@ -7,7 +7,8 @@
 
 #define INA3221_DEFAULT_ADDRESS 0x40
 
-#define INA3221_MANUFACTURER_ID 0x5449 ///< Manufacturer ID for Texas Instruments
+#define INA3221_MANUFACTURER_ID                                                \
+  0x5449                      ///< Manufacturer ID for Texas Instruments
 #define INA3221_DIE_ID 0x3220 ///< Die ID for INA3221
 
 // Register Definitions
@@ -18,12 +19,18 @@
 #define INA3221_REG_BUSVOLTAGE_CH2 0x04   ///< Bus Voltage Channel 2
 #define INA3221_REG_SHUNTVOLTAGE_CH3 0x05 ///< Shunt Voltage Channel 3
 #define INA3221_REG_BUSVOLTAGE_CH3 0x06   ///< Bus Voltage Channel 3
-#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH1 0x07 ///< Critical Alert Limit Channel 1
-#define INA3221_REG_WARNING_ALERT_LIMIT_CH1 0x08 ///< Warning Alert Limit Channel 1
-#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH2 0x09 ///< Critical Alert Limit Channel 2
-#define INA3221_REG_WARNING_ALERT_LIMIT_CH2 0x0A ///< Warning Alert Limit Channel 2
-#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH3 0x0B ///< Critical Alert Limit Channel 3
-#define INA3221_REG_WARNING_ALERT_LIMIT_CH3 0x0C ///< Warning Alert Limit Channel 3
+#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH1                                   \
+  0x07 ///< Critical Alert Limit Channel 1
+#define INA3221_REG_WARNING_ALERT_LIMIT_CH1                                    \
+  0x08 ///< Warning Alert Limit Channel 1
+#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH2                                   \
+  0x09 ///< Critical Alert Limit Channel 2
+#define INA3221_REG_WARNING_ALERT_LIMIT_CH2                                    \
+  0x0A ///< Warning Alert Limit Channel 2
+#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH3                                   \
+  0x0B ///< Critical Alert Limit Channel 3
+#define INA3221_REG_WARNING_ALERT_LIMIT_CH3                                    \
+  0x0C                                    ///< Warning Alert Limit Channel 3
 #define INA3221_REG_SHUNTVOLTAGE_SUM 0x0D ///< Shunt Voltage Sum
 #define INA3221_REG_SHUNTVOLTAGE_SUM_LIMIT 0x0E ///< Shunt Voltage Sum Limit
 #define INA3221_REG_MASK_ENABLE 0x0F            ///< Mask/Enable
@@ -67,10 +74,10 @@ typedef enum {
  * Represents the conversion time for both bus voltage and shunt voltage.
  */
 typedef enum {
-  INA3221_CONVTIME_140US = 0b000, ///< Conversion time: 140µs exact
-  INA3221_CONVTIME_204US = 0b001, ///< Conversion time: 204µs exact
-  INA3221_CONVTIME_332US = 0b010, ///< Conversion time: 332µs exact
-  INA3221_CONVTIME_588US = 0b011, ///< Conversion time: 588µs exact
+  INA3221_CONVTIME_140US = 0b000, ///< Conversion time: 140Âµs exact
+  INA3221_CONVTIME_204US = 0b001, ///< Conversion time: 204Âµs exact
+  INA3221_CONVTIME_332US = 0b010, ///< Conversion time: 332Âµs exact
+  INA3221_CONVTIME_588US = 0b011, ///< Conversion time: 588Âµs exact
   INA3221_CONVTIME_1MS = 0b100,   ///< Conversion time: 1.1ms exact
   INA3221_CONVTIME_2MS = 0b101,   ///< Conversion time: 2.116ms exact
   INA3221_CONVTIME_4MS = 0b110,   ///< Conversion time: 4.156ms exact
