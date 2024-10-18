@@ -96,6 +96,7 @@ typedef enum {
     INA3221_MODE_SHUNT_BUS_CONT      = 0b111     ///< Shunt and bus, continuous
 } ina3221_mode;
 
+/**! Class to hold interface for INA3221 chip */
 
 class Adafruit_INA3221 {
 public:
@@ -128,7 +129,7 @@ public:
 
     uint16_t getFlags();
     bool setSummationChannels(bool ch1, bool ch2, bool ch3);
-    float getCurrentSum();
+    //float getCurrentSum();
 
 private:
     Adafruit_I2CDevice *i2c_dev;
