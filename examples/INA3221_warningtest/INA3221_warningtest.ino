@@ -1,19 +1,21 @@
-#include <Wire.h>
 #include "Adafruit_INA3221.h"
+#include <Wire.h>
 
 // Create an INA3221 object
 Adafruit_INA3221 ina3221;
 
 void setup() {
   Serial.begin(115200);
-  while (!Serial) delay(10);  // Wait for serial port to connect on some boards
+  while (!Serial)
+    delay(10); // Wait for serial port to connect on some boards
 
   Serial.println("Adafruit INA3221 simple test");
-  
+
   // Initialize the INA3221
   if (!ina3221.begin(0x40, &Wire)) { // can use other I2C addresses or buses
     Serial.println("Failed to find INA3221 chip");
-    while (1) delay(10);
+    while (1)
+      delay(10);
   }
   Serial.println("INA3221 Found!");
 
@@ -25,18 +27,17 @@ void setup() {
   ina3221.setAveragingMode(INA3221_AVG_16_SAMPLES);
 
   ina3221.setWarningAlertThreshold(0, 0.325);
-  Serial.print("Warning threshold for channel 1: "); 
+  Serial.print("Warning threshold for channel 1: ");
   Serial.print(ina3221.getWarningAlertThreshold(0));
   Serial.println(" A");
 
   ina3221.setWarningAlertThreshold(1, 0.5);
-  Serial.print("Warning threshold for channel 2: "); 
+  Serial.print("Warning threshold for channel 2: ");
   Serial.print(ina3221.getWarningAlertThreshold(1));
   Serial.println(" A");
 
-
   ina3221.setWarningAlertThreshold(2, .4);
-  Serial.print("Warning threshold for channel 3: "); 
+  Serial.print("Warning threshold for channel 3: ");
   Serial.print(ina3221.getWarningAlertThreshold(2));
   Serial.println(" A");
 }
@@ -45,7 +46,7 @@ void loop() {
   // Display voltage and current (in mA) for all three channels
   for (uint8_t i = 0; i < 3; i++) {
     float voltage = ina3221.getBusVoltage(i);
-    float current = ina3221.getCurrentAmps(i) * 1000;  // Convert to mA
+    float current = ina3221.getCurrentAmps(i) * 1000; // Convert to mA
 
     Serial.print("Channel ");
     Serial.print(i);
@@ -66,7 +67,6 @@ void loop() {
   if (flags & INA3221_WARN_CH3) {
     Serial.println("   ... Channel 3 Warning Current ...");
   }
-  
 
   Serial.println();
   // Delay for 250ms before the next reading
