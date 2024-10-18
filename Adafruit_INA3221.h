@@ -7,8 +7,7 @@
 
 #define INA3221_DEFAULT_ADDRESS 0x40
 
-#define INA3221_MANUFACTURER_ID                                                \
-  0x5449                      ///< Manufacturer ID for Texas Instruments
+#define INA3221_MANUFACTURER_ID 0x5449 ///< Manufacturer ID for Texas Instruments
 #define INA3221_DIE_ID 0x3220 ///< Die ID for INA3221
 
 // Register Definitions
@@ -19,18 +18,12 @@
 #define INA3221_REG_BUSVOLTAGE_CH2 0x04   ///< Bus Voltage Channel 2
 #define INA3221_REG_SHUNTVOLTAGE_CH3 0x05 ///< Shunt Voltage Channel 3
 #define INA3221_REG_BUSVOLTAGE_CH3 0x06   ///< Bus Voltage Channel 3
-#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH1                                   \
-  0x07 ///< Critical Alert Limit Channel 1
-#define INA3221_REG_WARNING_ALERT_LIMIT_CH1                                    \
-  0x08 ///< Warning Alert Limit Channel 1
-#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH2                                   \
-  0x09 ///< Critical Alert Limit Channel 2
-#define INA3221_REG_WARNING_ALERT_LIMIT_CH2                                    \
-  0x0A ///< Warning Alert Limit Channel 2
-#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH3                                   \
-  0x0B ///< Critical Alert Limit Channel 3
-#define INA3221_REG_WARNING_ALERT_LIMIT_CH3                                    \
-  0x0C                                    ///< Warning Alert Limit Channel 3
+#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH1 0x07 ///< Critical Alert Limit Channel 1
+#define INA3221_REG_WARNING_ALERT_LIMIT_CH1 0x08 ///< Warning Alert Limit Channel 1
+#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH2 0x09 ///< Critical Alert Limit Channel 2
+#define INA3221_REG_WARNING_ALERT_LIMIT_CH2 0x0A ///< Warning Alert Limit Channel 2
+#define INA3221_REG_CRITICAL_ALERT_LIMIT_CH3 0x0B ///< Critical Alert Limit Channel 3
+#define INA3221_REG_WARNING_ALERT_LIMIT_CH3 0x0C ///< Warning Alert Limit Channel 3
 #define INA3221_REG_SHUNTVOLTAGE_SUM 0x0D ///< Shunt Voltage Sum
 #define INA3221_REG_SHUNTVOLTAGE_SUM_LIMIT 0x0E ///< Shunt Voltage Sum Limit
 #define INA3221_REG_MASK_ENABLE 0x0F            ///< Mask/Enable
