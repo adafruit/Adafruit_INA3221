@@ -18,7 +18,7 @@ void setup() {
       delay(10);
   }
   Serial.println("INA3221 Found!");
-
+  ina3221.setAveragingMode(INA3221_AVG_16_SAMPLES);
   // Set shunt resistances for all channels to 0.05 ohms
   for (uint8_t i = 0; i < 3; i++) {
     ina3221.setShuntResistance(i, 0.05);

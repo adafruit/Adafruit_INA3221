@@ -21,7 +21,7 @@ void setup() {
   for (uint8_t i = 0; i < 3; i++) {
     ina3221.setShuntResistance(i, 0.05);
   }
-
+  ina3221.setAveragingMode(INA3221_AVG_16_SAMPLES);
   ina3221.setCriticalAlertThreshold(0, 0.325);
   Serial.print("Critical threshold for channel 1: "); 
   Serial.print(ina3221.getCriticalAlertThreshold(0));
